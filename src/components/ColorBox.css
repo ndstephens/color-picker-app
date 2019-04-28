@@ -37,6 +37,7 @@
   color: white;
   text-transform: uppercase;
   border: none;
+  cursor: pointer;
   opacity: 0;
   transition: opacity 500ms;
 }
