@@ -39,7 +39,7 @@ const generatePalette = starterPalette => {
     scale.forEach((hexVal, index) => {
       newPalette.colors[levels[index]].push({
         name: `${color.name} ${levels[index]}`,
-        id: color.name.toLowerCase().replace(/ /g, '-'),
+        id: `${color.name.toLowerCase().replace(/ /g, '-')}-${levels[index]}`,
         hex: hexVal,
         rgb: chroma(hexVal).css(),
         rgba: chroma(hexVal)
