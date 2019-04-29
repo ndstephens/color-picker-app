@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import 'rc-slider/assets/index.css'
+import './Navbar.css'
+
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import Slider from 'rc-slider'
-
-import 'rc-slider/assets/index.css'
-import './Navbar.css'
 
 class Navbar extends Component {
   state = { snackbarIsOpen: false }
@@ -26,7 +27,7 @@ class Navbar extends Component {
       <header className="Navbar">
         {/* LOGO */}
         <div className="logo">
-          <a href="#">reactcolorpicker</a>
+          <Link to="/">reactcolorpicker</Link>
         </div>
 
         {/* LEVEL SLIDER */}

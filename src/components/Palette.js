@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import './Palette.css'
 
 import Navbar from './Navbar'
