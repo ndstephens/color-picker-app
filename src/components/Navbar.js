@@ -8,7 +8,6 @@ import Slider from 'rc-slider'
 
 import 'rc-slider/assets/index.css'
 import './Navbar.css'
-import { inherits } from 'util'
 
 class Navbar extends Component {
   state = { snackbarIsOpen: false }
