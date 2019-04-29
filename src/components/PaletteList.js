@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import MiniPalette from './MiniPalette'
+
 class PaletteList extends Component {
   render() {
     const { palettes } = this.props
 
-    const paletteList = palettes.map(palette => (
-      <p>
-        <Link to={`/palette/${palette.id}`}>{palette.paletteName}</Link>
-      </p>
-    ))
+    const paletteList = palettes.map(palette => <MiniPalette {...palette} />)
 
     return (
       <div className="PaletteList">
