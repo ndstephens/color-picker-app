@@ -42,7 +42,7 @@
   opacity: 1;
   transform: scale(1);
   z-index: 20;
-  transition: all 250ms ease-in 400ms;
+  transition: all 250ms ease-in 200ms;
 }
 
 .copy-msg h1 {
