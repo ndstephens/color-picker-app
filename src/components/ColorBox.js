@@ -18,7 +18,7 @@ class ColorBox extends Component {
   }
 
   render() {
-    const { name, background, paletteId, colorId } = this.props
+    const { name, background, paletteId, colorId, displayLink } = this.props
     const { copied } = this.state
 
     return (
@@ -41,16 +41,24 @@ class ColorBox extends Component {
             </div>
             <button className="copy-button">Copy</button>
           </div>
-          <Link
-            to={`/palette/${paletteId}/${colorId.split('-')[0]}`}
-            onClick={e => e.stopPropagation()}
-          >
-            <span className="see-more">More</span>
-          </Link>
+
+          {/* 'MORE' LINK */}
+          {displayLink && (
+            <Link
+              to={`/palette/${paletteId}/${colorId.split('-')[0]}`}
+              onClick={e => e.stopPropagation()}
+            >
+              <span className="see-more">More</span>
+            </Link>
+          )}
         </div>
       </CopyToClipboard>
     )
   }
+}
+
+ColorBox.defaultProps = {
+  displayLink: true,
 }
 
 export default ColorBox

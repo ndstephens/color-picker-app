@@ -38,8 +38,10 @@ class Palette extends Component {
           colorFormat={colorFormat}
           colorFormatChange={this.colorFormatChange}
         />
+
         {/* COLOR PALETTE */}
         <div className="Palette__colors">{colorBoxes}</div>
+
         {/* FOOTER */}
         <footer className="Palette__footer">
           {paletteName}
