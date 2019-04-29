@@ -5,12 +5,14 @@ import { generatePalette } from '../colorHelpers'
 
 import PaletteList from './PaletteList'
 import Palette from './Palette'
+import SingleColorPalette from './SingleColorPalette'
 
 class App extends Component {
   findPalette = id => seedColors.find(palette => palette.id === id)
 
   render() {
-    // console.log(generatePalette(seedColors[4]))
+    console.log(generatePalette(seedColors[0]))
+
     return (
       <Switch>
         <Route
@@ -34,7 +36,7 @@ class App extends Component {
         <Route
           exact
           path="/palette/:paletteId/:colorId"
-          render={() => <h1>Single Color Page</h1>}
+          render={() => <SingleColorPalette />}
         />
       </Switch>
     )
