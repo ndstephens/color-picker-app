@@ -12,7 +12,16 @@ const styles = {
     cursor: 'pointer',
   },
   colors: {
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
+    borderRadius: '5px',
+    overflow: 'hidden',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(5, 1fr)',
+    gridAutoRows: '30px',
+  },
+  miniColor: {
+    height: '100%',
+    width: '100%',
   },
   title: {
     display: 'flex',
@@ -30,10 +39,18 @@ const styles = {
   },
 }
 
-const MiniPalette = ({ classes, paletteName, emoji }) => {
+const MiniPalette = ({ classes, paletteName, emoji, colors }) => {
+  const miniColorBoxes = colors.map(color => (
+    <div
+      className={classes.miniColor}
+      style={{ backgroundColor: color.color }}
+      key={color.name}
+    />
+  ))
+
   return (
     <div className={classes.root}>
-      <div className={classes.colors}>//</div>
+      <div className={classes.colors}>{miniColorBoxes}</div>
       <h5 className={classes.title}>
         {paletteName} <span className={classes.emoji}>{emoji}</span>
       </h5>

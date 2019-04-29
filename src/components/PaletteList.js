@@ -7,13 +7,14 @@ import MiniPalette from './MiniPalette'
 const styles = {
   root: {
     backgroundColor: 'blue',
-    height: '100%',
+    height: '100vh',
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
   container: {
-    width: '50%',
+    width: '90%',
+    maxWidth: '800px',
     display: 'flex',
     alignItems: 'flex-start',
     flexDirection: 'column',
@@ -29,7 +30,7 @@ const styles = {
     boxSizing: 'border-box',
     width: '100%',
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 30%)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
     gridGap: '5%',
   },
 }
