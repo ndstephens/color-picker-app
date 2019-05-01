@@ -21,7 +21,7 @@ class Navbar extends Component {
   closeSnackbar = () => this.setState({ snackbarIsOpen: false })
 
   render() {
-    const { level, changeLevel, colorFormat } = this.props
+    const { level, changeLevel, colorFormat, displayLevelSlider } = this.props
 
     return (
       <header className="Navbar">
@@ -30,19 +30,21 @@ class Navbar extends Component {
           <Link to="/">reactcolorpicker</Link>
         </div>
 
-        {/* LEVEL SLIDER */}
-        <div className="slider-container">
-          <span>Level: {level}</span>
-          <div className="slider">
-            <Slider
-              defaultValue={level}
-              min={100}
-              max={900}
-              step={100}
-              onAfterChange={changeLevel}
-            />
+        {/* LEVEL SLIDER - display depends on prop */}
+        {displayLevelSlider && (
+          <div className="slider-container">
+            <span>Level: {level}</span>
+            <div className="slider">
+              <Slider
+                defaultValue={level}
+                min={100}
+                max={900}
+                step={100}
+                onAfterChange={changeLevel}
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* COLOR FORMAT SELECTOR */}
         <div className="select-container">
@@ -79,6 +81,10 @@ class Navbar extends Component {
       </header>
     )
   }
+}
+
+Navbar.defaultProps = {
+  displayLevelSlider: true,
 }
 
 export default Navbar

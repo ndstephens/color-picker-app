@@ -3,6 +3,7 @@ import './Palette.css'
 
 import Navbar from './Navbar'
 import ColorBox from './ColorBox'
+import PaletteFooter from './PaletteFooter'
 
 class Palette extends Component {
   state = { level: 500, colorFormat: 'hex' }
@@ -43,10 +44,7 @@ class Palette extends Component {
         <div className="Palette__colors">{colorBoxes}</div>
 
         {/* FOOTER */}
-        <footer className="Palette__footer">
-          {paletteName}
-          <span className="emoji">{emoji}</span>
-        </footer>
+        <PaletteFooter paletteName={paletteName} emoji={emoji} />
       </div>
     )
   }
