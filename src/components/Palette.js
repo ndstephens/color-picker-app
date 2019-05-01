@@ -1,23 +1,10 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/styles'
+import styles from '../styles/PaletteStyles'
 
 import Navbar from './Navbar'
 import ColorBox from './ColorBox'
 import PaletteFooter from './PaletteFooter'
-
-const styles = {
-  Palette: {
-    height: '100vh',
-    // display: 'flex',
-    // flexDirection: 'column',
-  },
-  Palette__colors: {
-    height: '90%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(5, 1fr)',
-    gridAutoRows: '1fr',
-  },
-}
 
 class Palette extends Component {
   state = { level: 500, colorFormat: 'hex' }
