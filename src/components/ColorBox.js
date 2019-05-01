@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import chroma from 'chroma-js'
+import { withStyles } from '@material-ui/styles'
 import './ColorBox.css'
 
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+
+const styles = {
+  textColor: {
+    color: props =>
+      chroma(props.background).luminance() >= 0.55
+        ? 'rgba(0, 0, 0, 0.65)'
+        : 'white',
+  },
+}
 
 class ColorBox extends Component {
   state = {
@@ -19,10 +29,9 @@ class ColorBox extends Component {
   }
 
   render() {
-    const { name, background, paletteId, colorId, displayLink } = this.props
+    // prettier-ignore
+    const { name, background, paletteId, colorId, displayLink, classes } = this.props
     const { copied } = this.state
-    const isDarkBG = chroma(background).luminance() <= 0.1
-    const isLightBG = chroma(background).luminance() >= 0.55
 
     return (
       <CopyToClipboard text={background} onCopy={this.changeCopyState}>
@@ -34,17 +43,15 @@ class ColorBox extends Component {
           />
           <div className={`copy-msg ${copied ? 'show' : ''}`}>
             <h1>copied!</h1>
-            <p className={isLightBG ? 'dark-text' : ''}>{background}</p>
+            <p className={classes.textColor}>{background}</p>
           </div>
           {/* COPY-OVERLAY -- end */}
 
           <div className="copy-container">
             <div className="box-content">
-              <span className={isDarkBG ? 'light-text' : ''}>{name}</span>
+              <span className={classes.textColor}>{name}</span>
             </div>
-            <button className={`copy-button ${isLightBG ? 'dark-text' : ''}`}>
-              Copy
-            </button>
+            <button className={`copy-button ${classes.textColor}`}>Copy</button>
           </div>
 
           {/* 'MORE' LINK */}
@@ -53,9 +60,7 @@ class ColorBox extends Component {
               to={`/palette/${paletteId}/${colorId.split('-')[0]}`}
               onClick={e => e.stopPropagation()}
             >
-              <span className={`see-more ${isLightBG ? 'dark-text' : ''}`}>
-                More
-              </span>
+              <span className={`see-more ${classes.textColor}`}>More</span>
             </Link>
           )}
         </div>
@@ -68,4 +73,4 @@ ColorBox.defaultProps = {
   displayLink: true,
 }
 
-export default ColorBox
+export default withStyles(styles)(ColorBox)
