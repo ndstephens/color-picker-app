@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 
+import { ChromePicker } from 'react-color'
+
 import Drawer from '@material-ui/core/Drawer'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
@@ -10,9 +12,10 @@ import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import Button from '@material-ui/core/Button'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-const drawerWidth = 240
+const drawerWidth = 340
 
 const styles = theme => ({
   root: {
@@ -74,6 +77,7 @@ const styles = theme => ({
 class NewPaletteForm extends Component {
   state = {
     open: false,
+    color: 'purple',
   }
 
   handleDrawerOpen = () => {
@@ -86,11 +90,15 @@ class NewPaletteForm extends Component {
 
   render() {
     const { classes } = this.props
-    const { open } = this.state
+    const { open, color } = this.state
+
+    console.log(color)
 
     return (
       <div className={classes.root}>
         <CssBaseline />
+
+        {/* NAVBAR */}
         <AppBar
           position="fixed"
           className={classNames(classes.appBar, {
@@ -112,6 +120,7 @@ class NewPaletteForm extends Component {
           </Toolbar>
         </AppBar>
 
+        {/* DRAWER */}
         <Drawer
           className={classes.drawer}
           variant="persistent"
@@ -127,7 +136,25 @@ class NewPaletteForm extends Component {
             </IconButton>
           </div>
           <Divider />
+          <Typography variant="h4">Design Your Palette</Typography>
+          <div>
+            <Button variant="contained" color="secondary">
+              Clear Palette
+            </Button>
+            <Button variant="contained" color="primary">
+              Random Color
+            </Button>
+          </div>
+          <ChromePicker
+            color={color}
+            onChangeComplete={newColor => this.setState({ color: newColor })}
+          />
+          <Button variant="contained" color="primary">
+            Add Color
+          </Button>
         </Drawer>
+
+        {/* COLOR PALETTE */}
         <main
           className={classNames(classes.content, {
             [classes.contentShift]: open,
