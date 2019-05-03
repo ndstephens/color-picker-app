@@ -82,10 +82,10 @@ const styles = theme => ({
 class NewPaletteForm extends Component {
   state = {
     open: true,
-    currentColor: '',
-    colorName: '',
-    colors: [],
     paletteName: '',
+    colorName: '',
+    currentColor: '',
+    colors: [],
   }
 
   componentDidMount() {
@@ -125,6 +125,8 @@ class NewPaletteForm extends Component {
       colors: prevSt.colors.filter(color => color.name !== colorName),
     }))
   }
+
+  boxColorFocus = colorValue => this.setState({ currentColor: colorValue })
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
@@ -254,7 +256,8 @@ class NewPaletteForm extends Component {
           {colors.map(color => (
             <DraggableColorBox
               {...color}
-              removeColor={() => this.removeColor(color.name)}
+              removeColor={this.removeColor}
+              boxColorFocus={this.boxColorFocus}
               key={color.name}
             />
           ))}
