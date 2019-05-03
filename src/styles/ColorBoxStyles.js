@@ -15,14 +15,14 @@ export default {
         : 'white',
   },
   colorName: {
-    padding: '10px',
     width: '100%',
-    letterSpacing: '1px',
-    textTransform: 'uppercase',
-    fontSize: '12px',
     position: 'absolute',
     left: '0',
     top: '0',
+    padding: '10px',
+    letterSpacing: '1px',
+    textTransform: 'uppercase',
+    fontSize: '12px',
   },
   copyBtn: {
     position: 'absolute',
@@ -56,6 +56,7 @@ export default {
     lineHeight: '30px',
     textTransform: 'uppercase',
   },
+
   copyMsgHeading: {
     fontWeight: '400',
     textShadow: '1px 2px #000',
@@ -70,6 +71,7 @@ export default {
     fontSize: '2rem',
     fontWeight: '100',
   },
+
   copyOverlay: {
     opacity: '0',
     zIndex: '0',
@@ -84,6 +86,7 @@ export default {
     zIndex: '10',
     position: 'absolute',
   },
+
   copyMsg: {
     position: 'fixed',
     top: '0',

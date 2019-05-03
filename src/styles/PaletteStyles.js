@@ -8,7 +8,6 @@ export default {
     height: '90%',
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)',
-    // gridAutoRows: '1fr',
     gridTemplateRows: 'repeat(4, 1fr)',
     backgroundColor: 'lightgrey',
   },
