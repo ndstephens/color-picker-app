@@ -9,12 +9,13 @@ export default {
     cursor: 'pointer',
   },
   colors: {
-    backgroundColor: 'white',
+    backgroundColor: 'lightgrey',
     borderRadius: '5px',
     overflow: 'hidden',
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)',
-    gridAutoRows: '30px',
+    // gridAutoRows: '30px',
+    gridTemplateRows: 'repeat(4, minmax(30px, 1fr))',
   },
   miniColor: {
     height: '100%',

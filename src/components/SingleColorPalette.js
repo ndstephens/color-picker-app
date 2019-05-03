@@ -47,7 +47,10 @@ class SingleColorPalette extends Component {
           displayLevelSlider={false}
         />
 
-        <div className={classes.Palette__colors}>
+        <div
+          className={classes.Palette__colors}
+          style={{ gridTemplateRows: 'repeat(2, 1fr)' }}
+        >
           {shadeBoxes}
           <div className={classes.goBackBox}>
             <Link to={`/palette/${id}`} className={classes.goBackBtn}>

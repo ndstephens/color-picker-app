@@ -115,6 +115,17 @@ class NewPaletteForm extends Component {
       colorName: '',
     }))
 
+  handleSave = () => {
+    const newName = 'New test palette'
+    const newPalette = {
+      paletteName: newName,
+      id: newName.toLowerCase().replace(/ /g, '-'),
+      colors: this.state.colors,
+    }
+    this.props.savePalette(newPalette)
+    this.props.history.push('/')
+  }
+
   render() {
     const { classes } = this.props
     const { open, currentColor, colorName, colors } = this.state
@@ -129,6 +140,7 @@ class NewPaletteForm extends Component {
           className={classNames(classes.appBar, {
             [classes.appBarShift]: open,
           })}
+          color="default"
         >
           <Toolbar disableGutters={!open}>
             <IconButton
@@ -142,6 +154,13 @@ class NewPaletteForm extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Persistent drawer
             </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleSave}
+            >
+              Save Palette
+            </Button>
           </Toolbar>
         </AppBar>
 
