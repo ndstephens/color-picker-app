@@ -13,9 +13,9 @@ export default {
     borderRadius: '5px',
     overflow: 'hidden',
     display: 'grid',
+    minHeight: '120px',
     gridTemplateColumns: 'repeat(5, 1fr)',
-    // gridAutoRows: '30px',
-    gridTemplateRows: 'repeat(4, minmax(30px, 1fr))',
+    gridTemplateRows: 'repeat(4, 1fr)',
   },
   miniColor: {
     height: '100%',
