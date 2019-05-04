@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
-import chroma from 'chroma-js'
-import { ChromePicker } from 'react-color'
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
 import arrayMove from 'array-move'
 
 import Drawer from '@material-ui/core/Drawer'
@@ -14,6 +11,7 @@ import Button from '@material-ui/core/Button'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
 import PaletteFormNav from './PaletteFormNav'
+import ColorPickerForm from './ColorPickerForm'
 import DraggableColorList from './DraggableColorList'
 
 const drawerWidth = 340
@@ -85,17 +83,6 @@ class NewPaletteForm extends Component {
     colors: this.props.palettes[0].colors,
   }
 
-  componentDidMount() {
-    ValidatorForm.addValidationRule('colorNameUnique', value =>
-      this.state.colors.every(
-        color => color.name.toLowerCase() !== value.toLowerCase().trim()
-      )
-    )
-    ValidatorForm.addValidationRule('colorValueUnique', value =>
-      this.state.colors.every(color => color.color !== this.state.currentColor)
-    )
-  }
-
   handleDrawerOpen = () => this.setState({ open: true })
 
   handleDrawerClose = () => this.setState({ open: false })
@@ -147,21 +134,15 @@ class NewPaletteForm extends Component {
     }))
   }
 
-  getTextColor = () =>
-    chroma(this.state.currentColor).luminance() >= 0.55
-      ? 'rgba(0, 0, 0, 0.65)'
-      : 'white'
-
   render() {
     const { classes, maxColors, palettes } = this.props
-    const { open, currentColor, colorName, colors } = this.state
+    const { open, colorName, currentColor, colors } = this.state
 
     const paletteIsFull = colors.length >= maxColors
-    const textColor = this.getTextColor()
 
     return (
       <div className={classes.root}>
-        {/* NAVBAR */}
+        {/* NAVBAR COMPONENT */}
         <PaletteFormNav
           classes={classes}
           open={open}
@@ -190,6 +171,7 @@ class NewPaletteForm extends Component {
           <Divider />
 
           <Typography variant="h4">Design Your Palette</Typography>
+
           <div>
             {/* CLEAR PALETTE BUTTON */}
             <Button
@@ -209,43 +191,20 @@ class NewPaletteForm extends Component {
             </Button>
           </div>
 
-          {/* COLOR PICKER */}
-          <ChromePicker
-            color={currentColor}
-            onChangeComplete={this.updateCurrentColor}
+          {/* COLOR PICKER COMPONENT */}
+          <ColorPickerForm
+            colors={colors}
+            colorName={colorName}
+            currentColor={currentColor}
+            paletteIsFull={paletteIsFull}
+            handleInputChange={this.handleInputChange}
+            updateCurrentColor={this.updateCurrentColor}
+            addNewColor={this.addNewColor}
           />
-
-          {/* COLOR NAME INPUT */}
-          <ValidatorForm onSubmit={this.addNewColor}>
-            <TextValidator
-              name="colorName"
-              value={colorName}
-              onChange={this.handleInputChange}
-              validators={['required', 'colorNameUnique', 'colorValueUnique']}
-              errorMessages={[
-                'Enter color name',
-                'Name already used',
-                'Color already used',
-              ]}
-            />
-            {/* ADD COLOR BUTTON */}
-            <Button
-              disabled={paletteIsFull}
-              variant="contained"
-              type="submit"
-              color="primary"
-              style={{
-                backgroundColor: paletteIsFull ? 'lightgrey' : currentColor,
-                color: paletteIsFull ? 'rgba(0, 0, 0, 0.65)' : textColor,
-              }}
-            >
-              {paletteIsFull ? 'Palette Full' : 'Add Color'}
-            </Button>
-          </ValidatorForm>
         </Drawer>
         {/* -- END DRAWER -- */}
 
-        {/* MAIN COLOR PALETTE */}
+        {/* THE COLOR PALETTE */}
         <main
           className={classNames(classes.content, {
             [classes.contentShift]: open,
