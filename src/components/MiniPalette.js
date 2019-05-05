@@ -2,6 +2,8 @@ import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/MiniPaletteStyles'
 
+import DeleteIcon from '@material-ui/icons/Delete'
+
 const MiniPalette = props => {
   const { classes, paletteName, id, emoji, colors, goToPalette } = props
 
@@ -17,6 +19,12 @@ const MiniPalette = props => {
 
   return (
     <div className={classes.root} onClick={handleClick}>
+      <div className={classes.delete}>
+        <DeleteIcon
+          className={classes.deleteIcon}
+          style={{ transition: 'opacity 300ms' }}
+        />
+      </div>
       <div className={classes.colors}>{miniColorBoxes}</div>
       <h5 className={classes.title}>
         {paletteName} <span className={classes.emoji}>{emoji}</span>

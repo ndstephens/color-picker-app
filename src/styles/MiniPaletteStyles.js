@@ -7,6 +7,21 @@ export default {
     position: 'relative',
     overflow: 'hidden',
     cursor: 'pointer',
+    '&:hover svg': {
+      opacity: 1,
+    },
+  },
+  delete: {},
+  deleteIcon: {
+    color: 'white',
+    backgroundColor: '#eb3d30',
+    display: 'inline-block',
+    position: 'absolute',
+    right: '0',
+    top: '0',
+    boxSizing: 'content-box',
+    padding: '7px',
+    opacity: 0,
   },
   colors: {
     backgroundColor: 'lightgrey',
