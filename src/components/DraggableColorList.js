@@ -1,25 +1,13 @@
 import React from 'react'
 import { SortableContainer } from 'react-sortable-hoc'
 import { withStyles } from '@material-ui/styles'
+import styles from '../styles/DraggableColorListStyles'
 
 import DraggableColorBox from './DraggableColorBox'
 
-const styles = {
-  root: {
-    height: '100%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(5, 1fr)',
-    gridTemplateRows: 'repeat(4, 1fr)',
-    backgroundColor: 'lightgrey',
-  },
-}
+const DraggableColorList = props => {
+  const { colors, removeColor, boxColorFocus, classes } = props
 
-const DraggableColorList = ({
-  colors,
-  removeColor,
-  boxColorFocus,
-  classes,
-}) => {
   return (
     <div className={classes.root}>
       {colors.map((color, i) => (

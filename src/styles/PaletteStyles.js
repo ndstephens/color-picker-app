@@ -1,15 +1,25 @@
+import mq from './mediaQueries'
+
 export default {
   Palette: {
-    height: '100vh',
+    minHeight: '100vh',
+    // overflowX: 'scroll',
     // display: 'flex',
     // flexDirection: 'column',
   },
   Palette__colors: {
-    height: '90%',
+    minHeight: '90vh',
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)',
-    gridTemplateRows: 'repeat(4, 1fr)',
+    // gridTemplateRows: 'repeat(4, 1fr)',
+    gridAutoRows: 'minmax(120px, 1fr)',
     backgroundColor: 'lightgrey',
+    [mq.down('md')]: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    [mq.down('xs')]: {
+      gridTemplateColumns: 'repeat(1, 1fr)',
+    },
   },
   goBackBox: {
     position: 'relative',
