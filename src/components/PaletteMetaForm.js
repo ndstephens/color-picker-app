@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import 'emoji-mart/css/emoji-mart.css'
 
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
+import { Picker } from 'emoji-mart'
 
 import Button from '@material-ui/core/Button'
 // import TextField from '@material-ui/core/TextField'
@@ -31,18 +33,19 @@ class FormDialog extends Component {
   //   this.setState({ open: true })
   // }
 
-  handleClose = () => {
-    this.setState({ open: false })
-  }
+  // handleClose = () => {
+  //   this.setState({ open: false })
+  // }
 
   render() {
-    const { paletteFormSubmit } = this.props
+    const { paletteFormSubmit, handleHideForm } = this.props
     const { newPaletteName } = this.state
 
     return (
       <Dialog
         open={this.state.open}
-        onClose={this.handleClose}
+        // onClose={this.handleClose}
+        onClose={handleHideForm}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
@@ -66,7 +69,7 @@ class FormDialog extends Component {
           </DialogContent>
           <DialogActions>
             {/* CANCEL BUTTON */}
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={handleHideForm} color="primary">
               Cancel
             </Button>
             {/* SAVE PALETTE BUTTON */}
@@ -75,6 +78,9 @@ class FormDialog extends Component {
             </Button>
           </DialogActions>
         </ValidatorForm>
+
+        {/* EMOJI PICKER */}
+        <Picker />
       </Dialog>
     )
   }
