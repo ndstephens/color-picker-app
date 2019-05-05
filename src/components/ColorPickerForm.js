@@ -13,9 +13,7 @@ const styles = {
   },
   addColorBtn: {
     width: '100%',
-    // padding: '1rem',
-    // marginTop: '0.5rem',
-    fontSize: '2rem',
+    fontSize: '2rem !important',
   },
   colorNameInput: {
     width: '100%',

@@ -111,11 +111,12 @@ class NewPaletteForm extends Component {
 
   handleInputChange = e => this.setState({ [e.target.name]: e.target.value })
 
-  paletteFormSubmit = newPaletteName => {
+  paletteFormSubmit = (newPaletteName, emoji) => {
     const paletteName = newPaletteName.trim()
     const newPalette = {
       paletteName,
       id: paletteName.toLowerCase().replace(/ /g, '-'),
+      emoji,
       colors: this.state.colors,
     }
     this.props.savePalette(newPalette)
