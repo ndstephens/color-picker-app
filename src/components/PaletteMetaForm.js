@@ -12,7 +12,7 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 
 class FormDialog extends Component {
   state = {
-    open: false,
+    open: true,
     newPaletteName: '',
   }
 
@@ -27,9 +27,9 @@ class FormDialog extends Component {
 
   handleInputChange = e => this.setState({ [e.target.name]: e.target.value })
 
-  handleClickOpen = () => {
-    this.setState({ open: true })
-  }
+  // handleClickOpen = () => {
+  //   this.setState({ open: true })
+  // }
 
   handleClose = () => {
     this.setState({ open: false })
@@ -40,52 +40,42 @@ class FormDialog extends Component {
     const { newPaletteName } = this.state
 
     return (
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleClickOpen}
-        >
-          Open form dialog
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+      <Dialog
+        open={this.state.open}
+        onClose={this.handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
+        <ValidatorForm onSubmit={() => paletteFormSubmit(newPaletteName)}>
           <DialogContent>
             <DialogContentText>
-              To subscribe to this website, please enter your email address
-              here. We will send updates occasionally.
+              Please enter a unique name for your color palette
             </DialogContentText>
-
-            <ValidatorForm onSubmit={() => paletteFormSubmit(newPaletteName)}>
-              {/* PALETTE NAME INPUT */}
-              <TextValidator
-                label="Palette Name"
-                name="newPaletteName"
-                value={newPaletteName}
-                onChange={this.handleInputChange}
-                validators={['required', 'paletteNameUnique']}
-                errorMessages={['Enter palette name', 'Name already used']}
-              />
-              {/* SAVE PALETTE BUTTON */}
-              <Button variant="contained" color="primary" type="submit">
-                Save Palette
-              </Button>
-            </ValidatorForm>
+            {/* PALETTE NAME INPUT */}
+            <TextValidator
+              label="Palette Name"
+              name="newPaletteName"
+              value={newPaletteName}
+              onChange={this.handleInputChange}
+              validators={['required', 'paletteNameUnique']}
+              errorMessages={['Enter palette name', 'Name already used']}
+              fullWidth
+              margin="normal"
+              autoFocus
+            />
           </DialogContent>
           <DialogActions>
+            {/* CANCEL BUTTON */}
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
-              Subscribe
+            {/* SAVE PALETTE BUTTON */}
+            <Button variant="contained" color="primary" type="submit">
+              Save Palette
             </Button>
           </DialogActions>
-        </Dialog>
-      </div>
+        </ValidatorForm>
+      </Dialog>
     )
   }
 }

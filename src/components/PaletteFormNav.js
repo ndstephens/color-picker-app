@@ -26,6 +26,7 @@ const styles = theme => ({
     }),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     height: '64px',
   },
   appBarShift: {
@@ -43,11 +44,25 @@ const styles = theme => ({
   hide: {
     display: 'none',
   },
-  navBtns: {},
+  navBtns: {
+    marginRight: '1rem',
+    '& a': {
+      textDecoration: 'none',
+    },
+  },
+  button: {
+    margin: '0 0.5rem',
+  },
 })
 
 class PaletteFormNav extends Component {
+  state = {
+    formIsVisible: false,
+  }
+
   handleInputChange = e => this.setState({ [e.target.name]: e.target.value })
+
+  handleDisplayForm = () => this.setState({ formIsVisible: true })
 
   render() {
     const {
@@ -57,6 +72,7 @@ class PaletteFormNav extends Component {
       paletteFormSubmit,
       handleDrawerOpen,
     } = this.props
+    const { formIsVisible } = this.state
 
     return (
       <div className={classes.root}>
@@ -87,18 +103,33 @@ class PaletteFormNav extends Component {
 
           {/* NEW PALETTE FORM */}
           <div className={classes.navBtns}>
-            <PaletteMetaForm
-              palettes={palettes}
-              paletteFormSubmit={paletteFormSubmit}
-            />
+            {/* SAVE PALETTE BUTTON */}
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleDisplayForm}
+              className={classes.button}
+            >
+              Save Palette
+            </Button>
             {/* GO BACK BUTTON */}
             <Link to="/">
-              <Button variant="contained" color="secondary">
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
                 Go Back
               </Button>
             </Link>
           </div>
         </AppBar>
+        {formIsVisible && (
+          <PaletteMetaForm
+            palettes={palettes}
+            paletteFormSubmit={paletteFormSubmit}
+          />
+        )}
       </div>
     )
   }
