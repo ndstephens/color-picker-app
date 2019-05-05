@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import arrayMove from 'array-move'
+import styles from '../styles/NewPaletteFormStyles'
 
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-// import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
@@ -13,61 +13,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import PaletteFormNav from './PaletteFormNav'
 import ColorPickerForm from './ColorPickerForm'
 import DraggableColorList from './DraggableColorList'
-
-const drawerWidth = 340
-
-const styles = theme => ({
-  root: {
-    display: 'flex',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-  },
-  content: {
-    flexGrow: 1,
-    height: 'calc(100vh - 64px)',
-    marginTop: '64px',
-    // padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
-  container: {
-    width: '90%',
-    height: '100%',
-    margin: '0 auto',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttons: {
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-around',
-    // marginTop: '1rem',
-  },
-})
 
 class NewPaletteForm extends Component {
   state = {
@@ -162,8 +107,6 @@ class NewPaletteForm extends Component {
             </IconButton>
           </div>
 
-          {/* <Divider /> */}
-
           {/* DRAWER CONTENT CONTAINER */}
           <div className={classes.container}>
             {/* TITLE */}
@@ -212,8 +155,6 @@ class NewPaletteForm extends Component {
             [classes.contentShift]: open,
           })}
         >
-          {/* <div className={classes.drawerHeader} /> */}
-
           <DraggableColorList
             axis="xy"
             distance={5}

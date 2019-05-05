@@ -1,39 +1,9 @@
 import React from 'react'
-import { SortableElement } from 'react-sortable-hoc'
 import { withStyles } from '@material-ui/styles'
-import DeleteIcon from '@material-ui/icons/Delete'
-import chroma from 'chroma-js'
+import styles from '../styles/DraggableColorBoxStyles'
 
-const styles = {
-  root: {
-    // width: '20%',
-    // height: '25%',
-    // display: 'inline-block',
-    position: 'relative',
-    cursor: 'pointer',
-  },
-  boxContent: {
-    width: '100%',
-    position: 'absolute',
-    left: '0',
-    top: '0',
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '10px',
-    letterSpacing: '1px',
-    textTransform: 'uppercase',
-    fontSize: '12px',
-    color: props =>
-      chroma(props.color).luminance() >= 0.55 ? 'rgba(0, 0, 0, 0.65)' : 'white',
-  },
-  deleteIcon: {
-    transform: 'scale(1)',
-    '&:hover': {
-      transform: 'scale(1.3)',
-    },
-    transition: 'transform 200ms',
-  },
-}
+import { SortableElement } from 'react-sortable-hoc'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 const DraggableColorBox = props => {
   const { color, name, removeColor, boxColorFocus, classes } = props
