@@ -11,7 +11,6 @@ export default {
       opacity: 1,
     },
   },
-  delete: {},
   deleteIcon: {
     color: 'white',
     backgroundColor: '#eb3d30',
