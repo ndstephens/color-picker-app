@@ -9,20 +9,27 @@ import Palette from './Palette'
 import SingleColorPalette from './SingleColorPalette'
 
 class App extends Component {
-  state = { palettes: seedColors }
+  state = {
+    palettes: JSON.parse(localStorage.getItem('palettes')) || seedColors,
+  }
 
   findPalette = id => this.state.palettes.find(palette => palette.id === id)
 
   savePalette = newPalette => {
-    this.setState(prevSt => ({
-      palettes: [...prevSt.palettes, newPalette],
-    }))
+    this.setState(
+      prevSt => ({
+        palettes: [...prevSt.palettes, newPalette],
+      }),
+      this.syncLocalStorage
+    )
+  }
+
+  syncLocalStorage = () => {
+    localStorage.setItem('palettes', JSON.stringify(this.state.palettes))
   }
 
   render() {
     const { palettes } = this.state
-
-    console.log(generatePalette(palettes[0]))
 
     return (
       <Switch>
