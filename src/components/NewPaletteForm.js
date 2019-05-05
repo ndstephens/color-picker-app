@@ -52,6 +52,21 @@ const styles = theme => ({
     }),
     marginLeft: 0,
   },
+  container: {
+    width: '90%',
+    height: '100%',
+    margin: '0 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttons: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-around',
+    // marginTop: '1rem',
+  },
 })
 
 class NewPaletteForm extends Component {
@@ -146,43 +161,51 @@ class NewPaletteForm extends Component {
             </IconButton>
           </div>
 
-          <Divider />
+          {/* <Divider /> */}
 
-          <Typography variant="h4">Design Your Palette</Typography>
+          {/* DRAWER CONTENT CONTAINER */}
+          <div className={classes.container}>
+            {/* TITLE */}
+            <Typography variant="h4" gutterBottom>
+              Design Your Palette
+            </Typography>
 
-          <div>
-            {/* CLEAR PALETTE BUTTON */}
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={this.clearPalette}
-            >
-              Clear Palette
-            </Button>
-            {/* RANDOM COLOR BUTTON */}
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={this.genRandomColor}
-            >
-              Random Color
-            </Button>
+            <div className={classes.buttons}>
+              {/* CLEAR PALETTE BUTTON */}
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={this.clearPalette}
+                className={classes.button}
+              >
+                Clear Palette
+              </Button>
+              {/* RANDOM COLOR BUTTON */}
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={this.genRandomColor}
+                className={classes.button}
+              >
+                Random Color
+              </Button>
+            </div>
+
+            {/* COLOR PICKER COMPONENT */}
+            <ColorPickerForm
+              colors={colors}
+              colorName={colorName}
+              currentColor={currentColor}
+              paletteIsFull={paletteIsFull}
+              handleInputChange={this.handleInputChange}
+              updateCurrentColor={this.updateCurrentColor}
+              addNewColor={this.addNewColor}
+            />
           </div>
-
-          {/* COLOR PICKER COMPONENT */}
-          <ColorPickerForm
-            colors={colors}
-            colorName={colorName}
-            currentColor={currentColor}
-            paletteIsFull={paletteIsFull}
-            handleInputChange={this.handleInputChange}
-            updateCurrentColor={this.updateCurrentColor}
-            addNewColor={this.addNewColor}
-          />
         </Drawer>
         {/* -- END DRAWER -- */}
 
-        {/* THE COLOR PALETTE */}
+        {/* THE COLOR PALETTE GRID */}
         <main
           className={classNames(classes.content, {
             [classes.contentShift]: open,
