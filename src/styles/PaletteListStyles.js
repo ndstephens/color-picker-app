@@ -38,7 +38,7 @@ export default {
     color: '#1e8feb',
     '& h1': {
       fontSize: '2.5rem',
-      margin: '1rem 0',
+      margin: '1rem',
     },
     '& a': {
       color: 'currentColor',
