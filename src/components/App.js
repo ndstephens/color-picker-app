@@ -102,6 +102,18 @@ class App extends Component {
                     </Page>
                   )}
                 />
+                {/* DEFAULT FALLBACK ROUTE */}
+                <Route
+                  render={routeProps => (
+                    <Page>
+                      <PaletteList
+                        deletePalette={this.deletePalette}
+                        palettes={palettes}
+                        {...routeProps}
+                      />
+                    </Page>
+                  )}
+                />
               </Switch>
             </CSSTransition>
           </TransitionGroup>
