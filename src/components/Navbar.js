@@ -34,7 +34,7 @@ class Navbar extends Component {
 
         {/* LEVEL SLIDER - display depends on prop */}
         {displayLevelSlider && (
-          <div>
+          <div className={classes.sliderContainer}>
             <span>Level: {level}</span>
             <div className={classes.slider}>
               <Slider

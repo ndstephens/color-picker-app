@@ -3,15 +3,11 @@ import mq from './mediaQueries'
 export default {
   Palette: {
     minHeight: '100vh',
-    // overflowX: 'scroll',
-    // display: 'flex',
-    // flexDirection: 'column',
   },
   Palette__colors: {
     minHeight: '90vh',
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)',
-    // gridTemplateRows: 'repeat(4, 1fr)',
     gridAutoRows: 'minmax(120px, 1fr)',
     backgroundColor: 'lightgrey',
     [mq.down('md')]: {

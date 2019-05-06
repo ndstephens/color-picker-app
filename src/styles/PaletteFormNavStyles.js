@@ -1,3 +1,4 @@
+import mq from './mediaQueries'
 import { DRAWER_WIDTH } from '../constants'
 
 const drawerWidth = DRAWER_WIDTH
@@ -39,6 +40,11 @@ const styles = theme => ({
   },
   button: {
     margin: '0 0.5rem',
+  },
+  title: {
+    [mq.down('md')]: {
+      display: 'none',
+    },
   },
 })
 

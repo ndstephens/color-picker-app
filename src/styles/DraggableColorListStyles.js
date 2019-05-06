@@ -1,9 +1,20 @@
+import mq from './mediaQueries'
+
 export default {
   root: {
-    height: '100%',
+    minHeight: '100%',
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)',
-    // gridTemplateRows: 'repeat(4, 1fr)',
+    gridAutoRows: 'minmax(120px, 1fr)',
     backgroundColor: 'lightgrey',
+    [mq.down('lg')]: {
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    },
+    [mq.down('md')]: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    [mq.down('sm')]: {
+      gridTemplateColumns: 'repeat(1, 1fr)',
+    },
   },
 }
