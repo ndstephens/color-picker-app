@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
 import seedColors from '../seedColors'
 import { generatePalette } from '../colorHelpers'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import PaletteList from './PaletteList'
 import NewPaletteForm from './NewPaletteForm'

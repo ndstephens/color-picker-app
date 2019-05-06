@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
+
+import { withStyles } from '@material-ui/core/styles'
 import styles from '../styles/PaletteFormNavStyles'
 
 import PaletteMetaForm from './PaletteMetaForm'
@@ -26,13 +27,8 @@ class PaletteFormNav extends Component {
   handleHideForm = () => this.setState({ formIsVisible: false })
 
   render() {
-    const {
-      classes,
-      open,
-      palettes,
-      paletteFormSubmit,
-      handleDrawerOpen,
-    } = this.props
+    // prettier-ignore
+    const {classes, open, palettes, paletteFormSubmit, handleDrawerOpen} = this.props
     const { formIsVisible } = this.state
 
     return (

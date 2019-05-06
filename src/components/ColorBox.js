@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/ColorBoxStyles'

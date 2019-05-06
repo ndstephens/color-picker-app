@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { withStyles } from '@material-ui/styles'
 import chroma from 'chroma-js'
-import { ChromePicker } from 'react-color'
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
+
+import { withStyles } from '@material-ui/styles'
 import styles from '../styles/ColorPickerFormStyles'
 
+import { ChromePicker } from 'react-color'
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
 import Button from '@material-ui/core/Button'
 
 class ColorPickerForm extends Component {
@@ -25,15 +26,8 @@ class ColorPickerForm extends Component {
       : 'white'
 
   render() {
-    const {
-      colorName,
-      currentColor,
-      paletteIsFull,
-      handleInputChange,
-      updateCurrentColor,
-      addNewColor,
-      classes,
-    } = this.props
+    // prettier-ignore
+    const { colorName, currentColor, paletteIsFull, handleInputChange,updateCurrentColor, addNewColor, classes } = this.props
 
     const textColor = this.getTextColor()
 

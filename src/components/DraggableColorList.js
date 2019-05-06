@@ -1,8 +1,9 @@
 import React from 'react'
-import { SortableContainer } from 'react-sortable-hoc'
+
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/DraggableColorListStyles'
 
+import { SortableContainer } from 'react-sortable-hoc'
 import DraggableColorBox from './DraggableColorBox'
 
 const DraggableColorList = props => {

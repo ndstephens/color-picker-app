@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/PaletteStyles'
 
@@ -18,7 +19,7 @@ class SingleColorPalette extends Component {
     const shades = Object.values(palette.colors).map(shadeList => {
       return shadeList.find(shade => shade.id.split('-')[0] === colorId)
     })
-    return shades.slice(1) // remove first value
+    return shades.slice(1) // remove first value, we don't use it
   }
 
   colorFormatChange = e => {
