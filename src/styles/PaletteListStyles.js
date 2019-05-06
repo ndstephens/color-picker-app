@@ -1,13 +1,14 @@
 export default {
   root: {
     backgroundColor: 'blue',
-    height: '100vh',
+    minHeight: '100vh',
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
+    paddingBottom: '2rem',
   },
   container: {
-    width: '90%',
+    width: '84%',
     maxWidth: '800px',
     display: 'flex',
     alignItems: 'flex-start',
@@ -27,7 +28,7 @@ export default {
   palettes: {
     width: '100%',
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gridGap: '5%',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gridGap: '25px',
   },
 }

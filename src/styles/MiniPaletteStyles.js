@@ -1,10 +1,20 @@
 export default {
+  container: {
+    width: '100%',
+    paddingTop: '80%',
+    position: 'relative',
+  },
+
   root: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
     backgroundColor: 'white',
     border: '1px solid black',
     borderRadius: '5px',
-    padding: '0.5rem',
-    position: 'relative',
+    padding: '4%',
     overflow: 'hidden',
     cursor: 'pointer',
     '&:hover svg': {
@@ -27,7 +37,7 @@ export default {
     borderRadius: '5px',
     overflow: 'hidden',
     display: 'grid',
-    minHeight: '120px',
+    height: '80%',
     gridTemplateColumns: 'repeat(5, 1fr)',
     gridTemplateRows: 'repeat(4, 1fr)',
   },
@@ -36,6 +46,7 @@ export default {
     width: '100%',
   },
   title: {
+    height: '20%',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
