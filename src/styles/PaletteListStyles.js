@@ -38,6 +38,7 @@ export default {
     color: '#1e8feb',
     '& h1': {
       fontSize: '2.5rem',
+      margin: '1rem 0',
     },
     '& a': {
       color: 'currentColor',
@@ -48,6 +49,7 @@ export default {
     width: '100%',
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gridGap: '25px',
+    gridColumnGap: '25px',
+    marginTop: '1rem',
   },
 }

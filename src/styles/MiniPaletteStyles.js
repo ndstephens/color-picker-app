@@ -1,11 +1,15 @@
 export default {
   container: {
     width: '100%',
+    maxWidth: '350px',
     paddingTop: '80%',
     position: 'relative',
+    margin: '0 auto',
   },
 
   root: {
+    height: '90%',
+    maxHeight: '320px',
     position: 'absolute',
     top: 0,
     right: 0,

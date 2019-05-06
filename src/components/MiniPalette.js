@@ -12,14 +12,14 @@ const MiniPalette = props => {
     emoji,
     colors,
     goToPalette,
-    deletePalette,
+    handleDisplayDialog,
   } = props
 
   const handlePaletteClick = () => goToPalette(id)
 
   const handleDeleteClick = e => {
     e.stopPropagation()
-    deletePalette(id)
+    handleDisplayDialog(id)
   }
 
   const miniColorBoxes = colors.map(color => (
