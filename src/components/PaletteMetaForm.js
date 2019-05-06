@@ -34,6 +34,7 @@ class FormDialog extends Component {
 
   savePalette = emoji => {
     this.props.paletteFormSubmit(this.state.newPaletteName, emoji.native)
+    this.setState({ stage: '' })
   }
 
   render() {
