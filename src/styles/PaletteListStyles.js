@@ -35,7 +35,7 @@ export default {
     width: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
-    color: '#1e8feb',
+    color: 'rgba(255,255,255,0.8)',
     '& h1': {
       fontSize: '2.5rem',
       margin: '1rem',
