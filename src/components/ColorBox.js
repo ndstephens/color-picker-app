@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import classNames from 'classnames'
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/ColorBoxStyles'
 
@@ -54,10 +55,15 @@ class ColorBox extends Component {
           {/* COPY-OVERLAY -- start */}
           <div
             style={{ backgroundColor: background }}
-            className={`${classes.copyOverlay} ${copied &&
-              classes.displayOverlay}`}
+            className={classNames(classes.copyOverlay, {
+              [classes.displayOverlay]: copied,
+            })}
           />
-          <div className={`${classes.copyMsg} ${copied && classes.displayMsg}`}>
+          <div
+            className={classNames(classes.copyMsg, {
+              [classes.displayMsg]: copied,
+            })}
+          >
             <h1 className={classes.copyMsgHeading}>Copied!</h1>
             <p className={`${classes.copyMsgText} ${classes.textColor}`}>
               {background}
