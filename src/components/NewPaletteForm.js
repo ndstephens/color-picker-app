@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import arrayMove from 'array-move'
+import seedColors from '../seedColors'
 
 import { withStyles } from '@material-ui/core/styles'
 import styles from '../styles/NewPaletteFormStyles'
@@ -20,7 +21,7 @@ class NewPaletteForm extends Component {
     open: true,
     colorName: '',
     currentColor: '#000',
-    colors: this.props.palettes[0].colors,
+    colors: seedColors[0].colors,
   }
 
   handleDrawerOpen = () => this.setState({ open: true })
