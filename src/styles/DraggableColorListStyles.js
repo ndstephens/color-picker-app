@@ -5,7 +5,7 @@ export default {
     minHeight: '100%',
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)',
-    gridAutoRows: 'minmax(120px, 1fr)',
+    gridAutoRows: 'minmax(120px, 20%)',
     backgroundColor: 'lightgrey',
     [mq.down('lg')]: {
       gridTemplateColumns: 'repeat(4, 1fr)',
