@@ -4,12 +4,21 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 
+import JssProvider from 'react-jss/lib/JssProvider'
+import { createGenerateClassName } from '@material-ui/core/styles'
 import App from './components/App'
 
+const generateClassName = createGenerateClassName({
+  dangerouslyUseGlobalCSS: false,
+  productionPrefix: 'c',
+})
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <JssProvider generateClassName={generateClassName}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </JssProvider>,
   document.getElementById('root')
 )
 
