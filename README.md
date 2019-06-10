@@ -10,7 +10,7 @@ Text and icon color is auto switched between white and black, depending on color
 
 Animations and transitions used throughout for improved user experience.  Data is persisted with local storage
 
-View [working demo](https://color-picker-nds.netlify.com/)
+### View [working demo](https://color-picker-nds.netlify.com/)
 
 ---
 
